@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Núñez Soluciones Digitales | Catálogo Digital y Cotizador</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #2b0b46;
+            --primary-med: #6b2d82;
+            --accent-pink: #d82e82;
+            --bg-light: #f6eef9;
+            --bg-card: #ffffff;
+            --text-dark: #222222;
+            --text-muted: #555555;
+            --border-color: #e4d0f2;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-dark);
+            color: white;
+            padding: 12px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo img {
+            height: 48px;
+            width: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            background: white;
+            padding: 2px;
+        }
+
+        .brand h2 {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .brand span {
+            color: var(--accent-pink);
+        }
+
+        /* Hero Header */
+        .hero {
+            background: linear-gradient(135deg, #2b0b46 0%, #6b2d82 100%);
+            color: white;
+            padding: 40px 5% 35px 5%;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .hero-logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        .hero h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            color: #eadaf2;
+            max-width: 600px;
+            margin: 0 auto 15px auto;
+        }
+
+        .hero-slogan {
+            font-style: italic;
+            font-weight: 600;
+            color: #f7a8d8;
+            margin-bottom: 20px;
+        }
+
+        /* Stats & Value Badges */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .stat-badge {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-badge i {
+            color: #f7a8d8;
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1150px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 25px;
+        }
+
+        @media (max-width: 900px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .section-title {
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ¿Quiénes somos? Section Card */
+        .about-card {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+            border: 2px solid var(--border-color);
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .about-card p {
+            font-size: 13px;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+        }
+
+        /* Category Filters */
+        .category-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            color: var(--primary-dark);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--accent-pink);
+            color: white;
+            border-color: var(--accent-pink);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 18px;
+            padding: 18px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-pink);
+            box-shadow: 0 8px 20px rgba(216, 46, 130, 0.12);
+        }
+
+        .service-card.disabled {
+            opacity: 0.8;
+            background: #fdfbfd;
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .service-icon {
+            width: 38px;
+            height: 38px;
+            background: #f0e2f5;
+            color: var(--primary-med);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .service-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .service-desc {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .includes-box {
+            background: #fcf8fd;
+            border-left: 3px solid var(--accent-pink);
+            padding: 8px 10px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+
+        .includes-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .includes-list {
+            list-style: none;
+        }
+
+        .includes-list li {
+            font-size: 10.5px;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3px;
+        }
+
+        .includes-list li span.item-price {
+            font-weight: 700;
+            color: var(--accent-pink);
+            font-size: 10px;
+            background: #fbf0f6;
+            padding: 1px 5px;
+            border-radius: 4px;
+        }
+
+        .includes-list li i {
+            color: var(--accent-pink);
+            font-size: 9px;
+            margin-right: 4px;
+        }
+
+        .quote-quote {
+            font-size: 10.5px;
+            font-style: italic;
+            color: var(--primary-med);
+            text-align: center;
+            margin: 8px 0;
+            font-weight: 600;
+        }
+
+        .service-price-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-pink);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 6px;
+        }
+
+        .select-btn {
+            background-color: var(--accent-pink);
+            color: white;
+            border: none;
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 11px;
+            cursor: pointer;
+            flex: 1;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: background 0.2s;
+        }
+
+        .select-btn:hover {
+            background-color: #b8226c;
+        }
+
+        .sample-btn {
+            background-color: #f0e2f5;
+            color: var(--primary-dark);
+            border: 1px solid var(--border-color);
+            padding: 8px 10px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 11px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .sample-btn:hover {
+            background-color: #e4d0f2;
+            color: var(--accent-pink);
+        }
+
+        .select-btn.disabled-btn {
+            background-color: #888;
+            cursor: not-allowed;
+            width: 100%;
+        }
+
+        /* Sidebar Contact & Info */
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 22px;
+            border: 2px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            position: sticky;
+            top: 85px;
+        }
+
+        .badge-header {
+            background-color: #eadaf2;
+            color: var(--primary-dark);
+            padding: 8px 14px;
+            border-radius: 15px;
+            font-weight: 700;
+            font-size: 13px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-list {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 12px;
+            color: var(--text-dark);
+        }
+
+        .contact-info-item i {
+            color: var(--accent-pink);
+            width: 18px;
+            text-align: center;
+        }
+
+        .guarantee-box {
+            background: #fdf4f9;
+            border: 1.5px solid var(--accent-pink);
+            border-radius: 14px;
+            padding: 12px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .guarantee-box i {
+            font-size: 22px;
+            color: var(--accent-pink);
+            margin-bottom: 4px;
+        }
+
+        .guarantee-box h5 {
+            font-size: 12px;
+            color: var(--primary-dark);
+        }
+
+        .guarantee-box p {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+
+        .contact-mini-box {
+            background: var(--primary-dark);
+            color: white;
+            border-radius: 14px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .contact-mini-box:hover {
+            transform: translateY(-2px);
+            background-color: #3b115c;
+        }
+
+        .contact-mini-box h4 {
+            font-size: 13px;
+            color: #f7a8d8;
+            margin-bottom: 4px;
+        }
+
+        .contact-mini-box p {
+            font-size: 15px;
+            font-weight: 800;
+            color: #25D366;
+            margin-top: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Process Steps Section */
+        .process-section {
+            grid-column: 1 / -1;
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            border: 2px solid var(--border-color);
+            margin-top: 10px;
+        }
+
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 12px;
+            background: #fbf8fc;
+            border-radius: 14px;
+            border: 1px solid var(--border-color);
+        }
+
+        .step-num {
+            width: 28px;
+            height: 28px;
+            background: var(--accent-pink);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 800;
+            margin: 0 auto 8px auto;
+        }
+
+        .process-step h5 {
+            font-size: 13px;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .process-step p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            grid-column: 1 / -1;
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            margin-top: 10px;
+        }
+
+        .faq-item {
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .faq-question {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-answer {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+            padding-left: 22px;
+        }
+
+        /* Floating WhatsApp Button */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.2s;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Modal Overlay & Form */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 24px;
+            padding: 35px 25px 25px 25px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #f0e2f5;
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            font-size: 16px;
+            cursor: pointer;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background: var(--accent-pink);
+            color: white;
+        }
+
+        .modal-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            margin-right: 35px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step-item {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .step-item.active {
+            color: var(--accent-pink);
+        }
+
+        .modal-title {
+            font-size: 17px;
+            color: var(--primary-dark);
+            margin-bottom: 4px;
+        }
+
+        .modal-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 5px;
+        }
+
+        .form-group select, .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 9px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 12px;
+            background-color: #fbf8fc;
+            outline: none;
+        }
+
+        .form-group select:focus, .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--accent-pink);
+        }
+
+        .options-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pill-checkbox {
+            display: none;
+        }
+
+        .pill-label {
+            background: #f0e2f5;
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pill-checkbox:checked + .pill-label {
+            background: var(--accent-pink);
+            color: white;
+        }
+
+        .difficulty-box {
+            background: linear-gradient(135deg, #fdf4f9 0%, #f5e6f8 100%);
+            border: 1.5px dashed var(--accent-pink);
+            border-radius: 14px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+        .difficulty-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .total-box {
+            background: #fbf0f6;
+            border: 1px solid var(--accent-pink);
+            border-radius: 12px;
+            padding: 10px 15px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-box span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .total-amount {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent-pink);
+        }
+
+        .send-ws-btn {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 14px;
+            font-size: 13px;
+            font-weight: 700;
+            width: 100%;
+            cursor: pointer;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .send-ws-btn:hover {
+            background-color: #1ebc57;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/593984955344?text=Hola%20N%C3%BA%C3%B1ez%20Soluciones%20Digitales%2C%20deseo%20hacer%20una%20consulta." target="_blank" class="floating-whatsapp" title="Chatea con nosotros">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand-logo">
+            <img src="logo.png" alt="Núñez Soluciones Digitales Logo" onerror="this.style.display='none'">
+            <div class="brand">
+                <h2>Núñez <span>Soluciones Digitales</span></h2>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero">
+        <img src="logo.png" alt="Núñez Soluciones Digitales" class="hero-logo" onerror="this.style.display='none'">
+        <h1>Soluciones Digitales que Impulsan tu Mundo ♡</h1>
+        <p class="hero-slogan">Diseño • Organización • Creatividad — Todo en un solo lugar</p>
+        
+        <div class="hero-stats">
+            <div class="stat-badge"><i class="fa-solid fa-gem"></i> Calidad en Cada Detalle</div>
+            <div class="stat-badge"><i class="fa-solid fa-bolt"></i> Rapidez en la Entrega</div>
+            <div class="stat-badge"><i class="fa-solid fa-heart"></i> Atención Personalizada</div>
+            <div class="stat-badge"><i class="fa-solid fa-star"></i> Tu Satisfacción es Prioridad</div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        
+        <main>
+            <!-- ¿Quiénes Somos? -->
+            <section class="about-card">
+                <h3 class="section-title"><i class="fa-solid fa-users"></i> ¿Quiénes somos?</h3>
+                <p>En <strong>Núñez Soluciones Digitales</strong> convertimos tus ideas en diseños profesionales y soluciones prácticas.</p>
+                <p>Brindamos servicios digitales de calidad, con rapidez y atención personalizada, para ayudarte a destacar, organizar y hacer crecer tus proyectos.</p>
+                <p style="font-weight: 700; color: var(--accent-pink); text-align: center; margin-top: 10px;">
+                    ¡Gracias por confiar en Núñez Soluciones Digitales! ♡
+                </p>
+            </section>
+
+            <!-- Filtros de Categoría -->
+            <h3 class="section-title"><i class="fa-solid fa-layer-group"></i> Nuestros Servicios</h3>
+            <div class="category-filters">
+                <button class="filter-btn active" onclick="filterServices('all', this)">Todos</button>
+                <button class="filter-btn" onclick="filterServices('empleo', this)">Empleo & CV</button>
+                <button class="filter-btn" onclick="filterServices('oficina', this)">Oficina & Docs</button>
+                <button class="filter-btn" onclick="filterServices('diseno', this)">Diseño & Redes</button>
+            </div>
+
+            <!-- Grilla de Servicios -->
+            <div class="services-grid">
+                
+                <!-- 1. Currículum -->
+                <div class="service-card" data-category="empleo">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <div class="service-title">1. Currículum</div>
+                        </div>
+                        <p class="service-desc">Diseños modernos y profesionales que destacan tu talento.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> CV Estándar / Básico</div> <span class="item-price">$5 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> CV Completo / Premium</div> <span class="item-price">$10 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Formato en PDF y/o Word</div></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tu futuro comienza con una buena presentación ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: $5 – $10 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Currículum')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Documentos en Word -->
+                <div class="service-card" data-category="oficina">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-file-word"></i></div>
+                            <div class="service-title">2. Documentos en Word</div>
+                        </div>
+                        <p class="service-desc">Todo tipo de documentos, bien organizados y listos para usar.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Precios por Ejemplo:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Cartas e Informes</div> <span class="item-price">$3 – $5 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Trabajos Académicos</div> <span class="item-price">Mínimo $15 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Constancias / Solicitudes</div> <span class="item-price">$3 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Entrega Inmediata</div> <span class="item-price">+ $3 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tus ideas en formato profesional ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $3 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Documentos en Word')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Presentaciones en PowerPoint -->
+                <div class="service-card" data-category="oficina">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-file-powerpoint"></i></div>
+                            <div class="service-title">3. Presentaciones en PowerPoint</div>
+                        </div>
+                        <p class="service-desc">Haz que tus ideas se vean increíbles y profesionales.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Presentación Sencilla</div> <span class="item-price">$5 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Presentación Elaborada</div> <span class="item-price">$8 - $10 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Animaciones e imágenes</div></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tu presentación habla por ti ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $5 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Presentaciones en PowerPoint')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Organización de información en Excel -->
+                <div class="service-card" data-category="oficina">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div class="service-title">4. Organización en Excel</div>
+                        </div>
+                        <p class="service-desc">Datos bien organizados también son resultados.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Tablas y Fórmulas</div> <span class="item-price">$5 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Gráficos y Reportes</div> <span class="item-price">$8 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Inventario y Dashboard</div> <span class="item-price">$10 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Organiza tu información y toma mejores decisiones ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $5 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Organización de información en Excel')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Flyers y publicaciones -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+                            <div class="service-title">5. Flyers y publicaciones</div>
+                        </div>
+                        <p class="service-desc">Lleva tu mensaje más lejos con diseños creativos y llamativos.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Post Sencillo</div> <span class="item-price">$3 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Flyer Promocional</div> <span class="item-price">$5 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tu marca en todas partes ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: $3 – $5 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Flyers y publicaciones')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Catálogos digitales -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-book-open"></i></div>
+                            <div class="service-title">6. Catálogos digitales</div>
+                        </div>
+                        <p class="service-desc">Muestra tus productos o servicios de forma atractiva y profesional.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Catálogo Básico</div> <span class="item-price">$10 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Catálogo Completo</div> <span class="item-price">$15 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Haz que tus productos hablen por ti ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $10 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Catálogos digitales')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Menús digitales -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+                            <div class="service-title">7. Menús digitales</div>
+                        </div>
+                        <p class="service-desc">Ideal para restaurantes, cafeterías y emprendimientos gastronómicos.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Menú Digital Imagen/PDF</div> <span class="item-price">$8 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Menú Interactivo</div> <span class="item-price">$12 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tu menú, más apetitoso en digital ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $8 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Menús digitales')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Logos y tarjetas digitales -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-address-card"></i></div>
+                            <div class="service-title">8. Logos y tarjetas digitales</div>
+                        </div>
+                        <p class="service-desc">Tu marca, con identidad propia.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Tarjeta Digital</div> <span class="item-price">$8 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Diseño de Logo</div> <span class="item-price">$12 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Una buena marca deja huella ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $8 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Logos y tarjetas digitales')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Páginas web (Próximamente) -->
+                <div class="service-card disabled" data-category="oficina">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div class="service-title">9. Páginas web y soluciones (Próximamente)</div>
+                        </div>
+                        <p class="service-desc">Tu proyecto en línea, con todo lo que necesitas.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Páginas web informativas</div></li>
+                                <li><div><i class="fa-solid fa-check"></i> Tiendas online</div></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"La tecnología también impulsa tus sueños ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Próximamente</span>
+                        <button class="select-btn disabled-btn" disabled>Próximamente</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Sidebar Contacto (CON HORARIO ACTUALIZADO) -->
+        <aside>
+            <div class="pricing-card">
+                <span class="badge-header"><i class="fa-solid fa-address-book"></i> Contáctanos ♡</span>
+                <ul class="contact-info-list">
+                    <li class="contact-info-item">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span><strong>098 495 5344</strong></span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span><strong>Lunes a Sábado:</strong> 8:00 AM – 7:00 PM</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>nunezsolucionesdigitales@gmail.com</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Núñez Soluciones Digitales</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>@nunezsolucionesdigitales</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Quito - Ecuador</span>
+                    </li>
+                </ul>
+
+                <div class="guarantee-box">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <h5>Garantía de Satisfacción</h5>
+                    <p>Incluye hasta 2 rondas de revisiones gratis para asegurar que tu proyecto quede perfecto.</p>
+                </div>
+
+                <a href="https://wa.me/593984955344?text=Hola%20N%C3%BA%C3%B1ez%20Soluciones%20Digitales%2C%20deseo%20hacer%20una%20consulta." target="_blank" class="contact-mini-box">
+                    <h4>¡Hablemos de tu proyecto!</h4>
+                    <p><i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp</p>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Proceso de Trabajo -->
+        <section class="process-section">
+            <h3 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> ¡Tú lo imaginas, nosotros lo hacemos realidad!</h3>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h5>Cotiza</h5>
+                    <p>Elige tu servicio y ajusta los detalles en el cotizador.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h5>Envía</h5>
+                    <p>Mándanos la información por WhatsApp sin compromiso.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h5>Diseñamos</h5>
+                    <p>Preparamos tu proyecto con máxima dedicación.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h5>Recibe</h5>
+                    <p>Obtén tus archivos listos y editables.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preguntas Frecuentes (CON HORARIO ACTUALIZADO) -->
+        <section class="faq-section">
+            <h3 class="section-title"><i class="fa-solid fa-circle-question"></i> Preguntas Frecuentes</h3>
+            <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-business-time" style="color:var(--accent-pink);"></i> ¿Cuál es el horario de atención?</div>
+                <div class="faq-answer">Atendemos de <strong>Lunes a Sábado de 8:00 AM a 7:00 PM</strong>. Puedes enviar tu cotización a cualquier hora y te responderemos en nuestro horario laboral.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-clock" style="color:var(--accent-pink);"></i> ¿Cuánto tiempo toma la entrega?</div>
+                <div class="faq-answer">Los trabajos se entregan con rapidez (promedio 24 a 48 horas). Si lo necesitas de inmediato, puedes solicitar la opción de entrega inmediata (+ $3 USD).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-file-arrow-down" style="color:var(--accent-pink);"></i> ¿En qué formato entregan los trabajos?</div>
+                <div class="faq-answer">Entregamos en PDF listo para imprimir o compartir, e incluimos los archivos editables (Word, PowerPoint, Excel) según tu requerimiento.</div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Modal Form Interactivo -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-card">
+            <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="modal-steps">
+                <span class="step-item active"><i class="fa-solid fa-user"></i> 1. Datos</span>
+                <span class="step-item active"><i class="fa-solid fa-sliders"></i> 2. Opciones</span>
+                <span class="step-item active"><i class="fa-brands fa-whatsapp"></i> 3. Cotizar</span>
+            </div>
+
+            <h3 class="modal-title">Cotizador Interactivo</h3>
+            <p class="modal-subtitle">Calcula el valor aproximado para tu servicio digital.</p>
+
+            <form id="quoteForm" onsubmit="sendWhatsApp(event)">
+                <div class="form-group">
+                    <label for="clientName">Nombre Completo</label>
+                    <input type="text" id="clientName" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="serviceSelect">Servicio Requerido</label>
+                    <select id="serviceSelect" onchange="handleServiceChange()" required>
+                        <option value="Currículum">1. Currículum</option>
+                        <option value="Documentos en Word">2. Documentos en Word</option>
+                        <option value="Presentaciones en PowerPoint">3. Presentaciones en PowerPoint</option>
+                        <option value="Organización de información en Excel">4. Organización de información en Excel</option>
+                        <option value="Flyers y publicaciones">5. Flyers y publicaciones</option>
+                        <option value="Catálogos digitales">6. Catálogos digitales</option>
+                        <option value="Menús digitales">7. Menús digitales</option>
+                        <option value="Logos y tarjetas digitales">8. Logos y tarjetas digitales</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="levelSelect" id="levelLabel">Tipo / Nivel del Proyecto</label>
+                    <select id="levelSelect" onchange="calculateTotal()" required>
+                    </select>
+                </div>
+
+                <div class="form-group" id="extrasContainer">
+                    <label id="extrasTitle">Agregados / Adicionales</label>
+                    <div class="options-pills" id="extrasContent">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="details"><i class="fa-solid fa-pen-to-square"></i> Detalles o Especificaciones</label>
+                    <textarea id="details" rows="2" placeholder="Escribe aquí el tema, cantidad de páginas, o detalles de lo que necesitas..."></textarea>
+                    
+                    <div class="difficulty-box">
+                        <div class="difficulty-title">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-pink);"></i> ¿Nivel de Dificultad o Urgencia Específica?
+                        </div>
+                        <div class="options-pills">
+                            <input type="checkbox" id="optDifficulty" class="pill-checkbox" value="Diseño Avanzado / Alta Complejidad" data-price="2" onchange="calculateTotal()">
+                            <label for="optDifficulty" class="pill-label">
+                                <i class="fa-solid fa-bolt"></i> Requerimiento Complejo / Complejidad (+ $2 USD)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-box">
+                    <span>Total Estimado:</span>
+                    <span class="total-amount" id="totalAmount">$5 USD</span>
+                </div>
+
+                <button type="submit" class="send-ws-btn">
+                    <i class="fa-brands fa-whatsapp"></i> Escríbenos y cotiza sin compromiso
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        const modalOverlay = document.getElementById('modalOverlay');
+        const serviceSelect = document.getElementById('serviceSelect');
+        const levelSelect = document.getElementById('levelSelect');
+        const levelLabel = document.getElementById('levelLabel');
+        const extrasContainer = document.getElementById('extrasContainer');
+        const extrasContent = document.getElementById('extrasContent');
+        const extrasTitle = document.getElementById('extrasTitle');
+        const totalAmountDisplay = document.getElementById('totalAmount');
+
+        const driveFolderLink = "https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link";
+
+        const basePrices = {
+            "Currículum": 5,
+            "Documentos en Word": 3,
+            "Presentaciones en PowerPoint": 5,
+            "Organización de información en Excel": 5,
+            "Flyers y publicaciones": 3,
+            "Catálogos digitales": 10,
+            "Menús digitales": 8,
+            "Logos y tarjetas digitales": 8
+        };
+
+        let calculatedTotal = 5;
+
+        function filterServices(category, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openModal(serviceName) {
+            if (serviceName) {
+                serviceSelect.value = serviceName;
+            }
+            handleServiceChange();
+            modalOverlay.style.display = 'flex';
+        }
+
+        function closeModal() {
+            modalOverlay.style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if (event.target === modalOverlay) {
+                closeModal();
+            }
+        }
+
+        function handleServiceChange() {
+            const selectedService = serviceSelect.value;
+            levelSelect.innerHTML = "";
+            extrasContent.innerHTML = "";
+
+            if (selectedService === "Documentos en Word") {
+                levelLabel.textContent = "Tipo de Documento en Word";
+                levelSelect.innerHTML = `
+                    <option value="Cartas e Informes Sencillos">Carta / Informe Sencillo ($3 USD)</option>
+                    <option value="Cartas e Informes Elaborados">Carta / Informe Elaborado ($5 USD)</option>
+                    <option value="Trabajos Académicos">Trabajo Académico (Mínimo $15 USD)</option>
+                    <option value="Constancias y Solicitudes">Constancia / Solicitud ($3 USD)</option>
+                `;
+                extrasTitle.textContent = "Opción de Urgencia para Word";
+                extrasContent.innerHTML = `
+                    <input type="checkbox" id="optWordFast" class="pill-checkbox" value="Entrega Inmediata" data-price="3" onchange="calculateTotal()">
+                    <label for="optWordFast" class="pill-label"><i class="fa-solid fa-bolt"></i> + Entrega Inmediata (+$3 USD)</label>
+                `;
+                extrasContainer.style.display = "block";
+
+            } else if (selectedService === "Currículum") {
+                levelLabel.textContent = "Nivel del Currículum";
+                levelSelect.innerHTML = `
+                    <option value="Estándar / Básico">CV Estándar / Básico ($5 USD)</option>
+                    <option value="Completo / Premium">CV Completo / Premium ($10 USD)</option>
+                `;
+                extrasTitle.textContent = "Adicionales de CV";
+                extrasContent.innerHTML = `
+                    <input type="checkbox" id="opt1" class="pill-checkbox" value="Carta de Presentación" data-price="2" onchange="calculateTotal()">
+                    <label for="opt1" class="pill-label">+ Carta Presentación (+$2)</label>
+
+                    <input type="checkbox" id="optCVFast" class="pill-checkbox" value="Entrega Inmediata" data-price="3" onchange="calculateTotal()">
+                    <label for="optCVFast" class="pill-label">+ Entrega Inmediata (+$3)</label>
+                `;
+                extrasContainer.style.display = "block";
+
+            } else if (selectedService === "Organización de información en Excel") {
+                levelLabel.textContent = "Nivel del Proyecto en Excel";
+                levelSelect.innerHTML = `
+                    <option value="Básico (Tablas y Fórmulas)">Básico - Tablas y Fórmulas ($5 USD)</option>
+                    <option value="Intermedio (Gráficos y Reportes)">Intermedio - Reportes ($8 USD)</option>
+                    <option value="Avanzado (Control e Inventarios)">Avanzado - Inventarios/Dashboard ($10 USD)</option>
+                `;
+                extrasTitle.textContent = "Adicionales de Excel";
+                extrasContent.innerHTML = `
+                    <input type="checkbox" id="optExcel" class="pill-checkbox" value="Fórmulas Especiales / Automatización" data-price="3" onchange="calculateTotal()">
+                    <label for="optExcel" class="pill-label">+ Automatización Específica (+$3)</label>
+                `;
+                extrasContainer.style.display = "block";
+
+            } else if (selectedService === "Flyers y publicaciones") {
+                levelLabel.textContent = "Nivel de Diseño";
+                levelSelect.innerHTML = `
+                    <option value="Post Sencillo">Post / Anuncio Sencillo ($3 USD)</option>
+                    <option value="Flyer Elaborado">Flyer Promocional Elaborado ($5 USD)</option>
+                `;
+                extrasContainer.style.display = "none";
+            } else {
+                levelLabel.textContent = "Nivel del Proyecto";
+                levelSelect.innerHTML = `
+                    <option value="Básico">Básico (Estándar)</option>
+                    <option value="Intermedio">Intermedio (+ $3 USD)</option>
+                    <option value="Avanzado">Avanzado (+ $5 USD)</option>
+                `;
+                extrasContainer.style.display = "none";
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const selectedService = serviceSelect.value;
+            const selectedLevel = levelSelect.value;
+
+            let total = basePrices[selectedService] || 5;
+
+            // Cálculo para Word
+            if (selectedService === "Documentos en Word") {
+                if (selectedLevel.includes("Informes Elaborados")) total = 5;
+                else if (selectedLevel.includes("Trabajos Académicos")) total = 15;
+                else total = 3;
+            } 
+            // Cálculo para Currículum
+            else if (selectedService === "Currículum") {
+                if (selectedLevel.includes("Completo")) total = 10;
+                else total = 5;
+            } 
+            // Cálculo para Excel
+            else if (selectedService === "Organización de información en Excel") {
+                if (selectedLevel.includes("Intermedio")) total = 8;
+                else if (selectedLevel.includes("Avanzado")) total = 10;
+                else total = 5;
+            } 
+            // Cálculo para Flyers
+            else if (selectedService === "Flyers y publicaciones") {
+                if (selectedLevel.includes("Elaborado")) total = 5;
+                else total = 3;
+            } 
+            // Servicios generales
+            else {
+                if (selectedLevel.includes("Intermedio")) total += 3;
+                if (selectedLevel.includes("Avanzado")) total += 5;
+            }
+
+            // Sumar checkboxes activados
+            document.querySelectorAll('.pill-checkbox:checked').forEach((checkbox) => {
+                const price = parseFloat(checkbox.getAttribute('data-price')) || 0;
+                total += price;
+            });
+
+            calculatedTotal = total;
+            totalAmountDisplay.textContent = `$${total} USD`;
+        }
+
+        function sendWhatsApp(event) {
+            event.preventDefault();
+
+            const phoneNumber = "593984955344"; 
+
+            const name = document.getElementById('clientName').value;
+            const service = serviceSelect.value;
+            const level = levelSelect.value;
+            const details = document.getElementById('details').value;
+
+            let extrasText = "Ninguno";
+            let extras = [];
+            document.querySelectorAll('.pill-checkbox:checked').forEach((checkbox) => {
+                extras.push(checkbox.value);
+            });
+            if (extras.length > 0) extrasText = extras.join(', ');
+
+            let message = `*¡Hola Núñez Soluciones Digitales!*\n\nDeseo solicitar una cotización con los siguientes datos:\n\n`;
+            message += `👤 *Cliente:* ${name}\n`;
+            message += `📌 *Servicio:* ${service}\n`;
+            message += `⚡ *Tipo/Nivel:* ${level}\n`;
+            if (extras.length > 0) {
+                message += `➕ *Adicionales / Complejidad:* ${extrasText}\n`;
+            }
+            if (details) {
+                message += `📝 *Detalles:* ${details}\n`;
+            }
+            message += `\n📁 *Catálogo de Muestras/Plantillas:*\n${driveFolderLink}\n`;
+            message += `\n💰 *Cotización Estimada:* $${calculatedTotal} USD\n\n¡Quedo atento a su respuesta!`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
