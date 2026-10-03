@@ -368,6 +368,12 @@
             color: var(--accent-pink);
         }
 
+        .select-btn.disabled-btn {
+            background-color: #888;
+            cursor: not-allowed;
+            width: 100%;
+        }
+
         /* Sidebar Contact & Info */
         .pricing-card {
             background: white;
@@ -626,6 +632,28 @@
             color: white;
         }
 
+        .modal-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            margin-right: 35px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .step-item {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .step-item.active {
+            color: var(--accent-pink);
+        }
+
         .modal-title {
             font-size: 17px;
             color: var(--primary-dark);
@@ -662,6 +690,76 @@
 
         .form-group select:focus, .form-group input:focus, .form-group textarea:focus {
             border-color: var(--accent-pink);
+        }
+
+        .options-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .pill-checkbox {
+            display: none;
+        }
+
+        .pill-label {
+            background: #f0e2f5;
+            color: var(--primary-dark);
+            padding: 6px 12px;
+            border-radius: 16px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .pill-checkbox:checked + .pill-label {
+            background: var(--accent-pink);
+            color: white;
+        }
+
+        .difficulty-box {
+            background: linear-gradient(135deg, #fdf4f9 0%, #f5e6f8 100%);
+            border: 1.5px dashed var(--accent-pink);
+            border-radius: 14px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+
+        .difficulty-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .total-box {
+            background: #fbf0f6;
+            border: 1px solid var(--accent-pink);
+            border-radius: 12px;
+            padding: 10px 15px;
+            margin: 15px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .total-box span {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .total-amount {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--accent-pink);
         }
 
         .send-ws-btn {
@@ -801,151 +899,422 @@
                             <button class="select-btn" onclick="openModal('Documentos en Word')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3. Diseño & Redes Social -->
-                <div class="service-card" data-category="diseno">
+                <!-- 3. Presentaciones en PowerPoint -->
+                <div class="service-card" data-category="oficina">
                     <div>
                         <div class="service-header">
-                            <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
-                            <div class="service-title">3. Diseño & Redes</div>
+                            <div class="service-icon"><i class="fa-solid fa-file-powerpoint"></i></div>
+                            <div class="service-title">3. Presentaciones en PowerPoint</div>
                         </div>
-                        <p class="service-desc">Imágenes llamativas para potenciar tu marca personal o negocio.</p>
+                        <p class="service-desc">Haz que tus ideas se vean increíbles y profesionales.</p>
                         
                         <div class="includes-box">
                             <div class="includes-title">Incluye:</div>
                             <ul class="includes-list">
-                                <li><div><i class="fa-solid fa-check"></i> Posts & Historias</div> <span class="item-price">$3 – $5 USD</span></li>
-                                <li><div><i class="fa-solid fa-check"></i> Flyers Promocionales</div> <span class="item-price">$5 USD</span></li>
-                                <li><div><i class="fa-solid fa-check"></i> Logos e Identidad</div> <span class="item-price">$10 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Presentación Sencilla</div> <span class="item-price">$5 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Presentación Elaborada</div> <span class="item-price">$8 - $10 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Animaciones e imágenes</div></li>
                             </ul>
                         </div>
-                        <p class="quote-quote">"Haz destacar tu contenido visual ♡"</p>
+                        <p class="quote-quote">"Tu presentación habla por ti ♡"</p>
                     </div>
                     <div>
-                        <span class="service-price-tag">Precio: desde $3 USD</span>
+                        <span class="service-price-tag">Precio: desde $5 USD</span>
                         <div class="btn-group">
-                            <button class="select-btn" onclick="openModal('Diseño y Redes')">
+                            <button class="select-btn" onclick="openModal('Presentaciones en PowerPoint')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- 4. Organización de información en Excel -->
+                <div class="service-card" data-category="oficina">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                            <div class="service-title">4. Organización en Excel</div>
+                        </div>
+                        <p class="service-desc">Datos bien organizados también son resultados.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Tablas y Fórmulas</div> <span class="item-price">$5 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Gráficos y Reportes</div> <span class="item-price">$8 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Inventario y Dashboard</div> <span class="item-price">$10 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Organiza tu información y toma mejores decisiones ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $5 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Organización de información en Excel')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Flyers y publicaciones -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+                            <div class="service-title">5. Flyers y publicaciones</div>
+                        </div>
+                        <p class="service-desc">Lleva tu mensaje más lejos con diseños creativos y llamativos.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Post Sencillo</div> <span class="item-price">$3 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Flyer Promocional</div> <span class="item-price">$5 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tu marca en todas partes ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: $3 – $5 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Flyers y publicaciones')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Catálogos digitales -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-book-open"></i></div>
+                            <div class="service-title">6. Catálogos digitales</div>
+                        </div>
+                        <p class="service-desc">Muestra tus productos o servicios de forma atractiva y profesional.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Catálogo Básico</div> <span class="item-price">$10 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Catálogo Completo</div> <span class="item-price">$15 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Haz que tus productos hablen por ti ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $10 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Catálogos digitales')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Menús digitales -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-utensils"></i></div>
+                            <div class="service-title">7. Menús digitales</div>
+                        </div>
+                        <p class="service-desc">Ideal para restaurantes, cafeterías y emprendimientos gastronómicos.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Menú Digital Imagen/PDF</div> <span class="item-price">$8 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Menú Interactivo</div> <span class="item-price">$12 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Tu menú, más apetitoso en digital ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $8 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Menús digitales')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Logos y tarjetas digitales -->
+                <div class="service-card" data-category="diseno">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-address-card"></i></div>
+                            <div class="service-title">8. Logos y tarjetas digitales</div>
+                        </div>
+                        <p class="service-desc">Tu marca, con identidad propia.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Tarjeta Digital</div> <span class="item-price">$8 USD</span></li>
+                                <li><div><i class="fa-solid fa-check"></i> Diseño de Logo</div> <span class="item-price">$12 USD</span></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"Una buena marca deja huella ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Precio: desde $8 USD</span>
+                        <div class="btn-group">
+                            <button class="select-btn" onclick="openModal('Logos y tarjetas digitales')">
+                                <i class="fa-solid fa-plus"></i> Cotizar
+                            </button>
+                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
+                                <i class="fa-solid fa-folder-open"></i> Muestra
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Páginas web (Próximamente) -->
+                <div class="service-card disabled" data-category="oficina">
+                    <div>
+                        <div class="service-header">
+                            <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div class="service-title">9. Páginas web y soluciones (Próximamente)</div>
+                        </div>
+                        <p class="service-desc">Tu proyecto en línea, con todo lo que necesitas.</p>
+                        
+                        <div class="includes-box">
+                            <div class="includes-title">Incluye:</div>
+                            <ul class="includes-list">
+                                <li><div><i class="fa-solid fa-check"></i> Páginas web informativas</div></li>
+                                <li><div><i class="fa-solid fa-check"></i> Tiendas online</div></li>
+                            </ul>
+                        </div>
+                        <p class="quote-quote">"La tecnología también impulsa tus sueños ♡"</p>
+                    </div>
+                    <div>
+                        <span class="service-price-tag">Próximamente</span>
+                        <button class="select-btn disabled-btn" disabled>Próximamente</button>
                     </div>
                 </div>
 
             </div>
         </main>
 
-        <!-- Sidebar Contact Info -->
+        <!-- Sidebar Contacto (CON HORARIO ACTUALIZADO) -->
         <aside>
             <div class="pricing-card">
-                <span class="badge-header"><i class="fa-solid fa-address-book"></i> Contacto Directo</span>
+                <span class="badge-header"><i class="fa-solid fa-address-book"></i> Contáctanos ♡</span>
                 <ul class="contact-info-list">
                     <li class="contact-info-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <span>+593 98 495 5344</span>
-                    </li>
-                    <li class="contact-info-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <span>contacto@nunezsoluciones.com</span>
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span><strong>098 495 5344</strong></span>
                     </li>
                     <li class="contact-info-item">
                         <i class="fa-solid fa-clock"></i>
-                        <span>Lun - Sáb: 8:00 AM - 7:00 PM</span>
+                        <span><strong>Lunes a Sábado:</strong> 8:00 AM – 7:00 PM</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>nunezsolucionesdigitales@gmail.com</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-brands fa-facebook"></i>
+                        <span>Núñez Soluciones Digitales</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-brands fa-instagram"></i>
+                        <span>@nunezsolucionesdigitales</span>
+                    </li>
+                    <li class="contact-info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Quito - Ecuador</span>
                     </li>
                 </ul>
 
                 <div class="guarantee-box">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <h5>Garantía de Calidad</h5>
-                    <p>Revisiones incluidas hasta tu total satisfacción.</p>
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <h5>Garantía de Satisfacción</h5>
+                    <p>Incluye hasta 2 rondas de revisiones gratis para asegurar que tu proyecto quede perfecto.</p>
                 </div>
 
                 <a href="https://wa.me/593984955344?text=Hola%20N%C3%BA%C3%B1ez%20Soluciones%20Digitales%2C%20deseo%20hacer%20una%20consulta." target="_blank" class="contact-mini-box">
-                    <h4>¿Tienes preguntas?</h4>
-                    <p><i class="fa-brands fa-whatsapp"></i> Escríbenos hoy</p>
+                    <h4>¡Hablemos de tu proyecto!</h4>
+                    <p><i class="fa-brands fa-whatsapp"></i> Escríbenos por WhatsApp</p>
                 </a>
             </div>
         </aside>
 
-        <!-- Process Section -->
+        <!-- Proceso de Trabajo -->
         <section class="process-section">
-            <h3 class="section-title"><i class="fa-solid fa-diagram-project"></i> ¿Cómo trabajamos?</h3>
+            <h3 class="section-title"><i class="fa-solid fa-wand-magic-sparkles"></i> ¡Tú lo imaginas, nosotros lo hacemos realidad!</h3>
             <div class="process-grid">
                 <div class="process-step">
                     <div class="step-num">1</div>
-                    <h5>Cotización</h5>
-                    <p>Eliges tu servicio y nos envías los detalles por WhatsApp.</p>
+                    <h5>Cotiza</h5>
+                    <p>Elige tu servicio y ajusta los detalles en el cotizador.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-num">2</div>
-                    <h5>Borrador</h5>
-                    <p>Elaboramos una propuesta inicial para tu revisión.</p>
+                    <h5>Envía</h5>
+                    <p>Mándanos la información por WhatsApp sin compromiso.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-num">3</div>
-                    <h5>Ajustes</h5>
-                    <p>Realizamos los cambios necesarios que nos indiques.</p>
+                    <h5>Diseñamos</h5>
+                    <p>Preparamos tu proyecto con máxima dedicación.</p>
                 </div>
                 <div class="process-step">
                     <div class="step-num">4</div>
-                    <h5>Entrega</h5>
-                    <p>Recibes tu archivo final en alta resolución o editable.</p>
+                    <h5>Recibe</h5>
+                    <p>Obtén tus archivos listos y editables.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ Section -->
+        <!-- Preguntas Frecuentes (CON HORARIO ACTUALIZADO) -->
         <section class="faq-section">
             <h3 class="section-title"><i class="fa-solid fa-circle-question"></i> Preguntas Frecuentes</h3>
             <div class="faq-item">
-                <div class="faq-question"><i class="fa-solid fa-chevron-right"></i> ¿En qué formato entregan los trabajos?</div>
-                <div class="faq-answer">Dependiendo del servicio, entregamos en PDF, DOCX (Word), PNG/JPG de alta calidad o editables.</div>
+                <div class="faq-question"><i class="fa-solid fa-business-time" style="color:var(--accent-pink);"></i> ¿Cuál es el horario de atención?</div>
+                <div class="faq-answer">Atendemos de <strong>Lunes a Sábado de 8:00 AM a 7:00 PM</strong>. Puedes enviar tu cotización a cualquier hora y te responderemos en nuestro horario laboral.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question"><i class="fa-solid fa-chevron-right"></i> ¿Cuánto tiempo demora la entrega?</div>
-                <div class="faq-answer">Los trabajos normales toman entre 24 y 48 horas. También contamos con servicio exprés de entrega inmediata.</div>
+                <div class="faq-question"><i class="fa-solid fa-clock" style="color:var(--accent-pink);"></i> ¿Cuánto tiempo toma la entrega?</div>
+                <div class="faq-answer">Los trabajos se entregan con rapidez (promedio 24 a 48 horas). Si lo necesitas de inmediato, puedes solicitar la opción de entrega inmediata (+ $3 USD).</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-file-arrow-down" style="color:var(--accent-pink);"></i> ¿En qué formato entregan los trabajos?</div>
+                <div class="faq-answer">Entregamos en PDF listo para imprimir o compartir, e incluimos los archivos editables (Word, PowerPoint, Excel) según tu requerimiento.</div>
             </div>
         </section>
-
     </div>
 
-    <!-- Modal Formulario -->
-    <div class="modal-overlay" id="quoteModal">
+    <!-- Modal Form Interactivo -->
+    <div class="modal-overlay" id="modalOverlay">
         <div class="modal-card">
             <button class="close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
-            <h3 class="modal-title">Cotizar Servicio</h3>
-            <p class="modal-subtitle">Cuéntanos sobre tu proyecto y nos pondremos en contacto.</p>
-            
-            <form id="quoteForm" onsubmit="sendToWhatsApp(event)">
+
+            <div class="modal-steps">
+                <span class="step-item active"><i class="fa-solid fa-user"></i> 1. Datos</span>
+                <span class="step-item active"><i class="fa-solid fa-sliders"></i> 2. Opciones</span>
+                <span class="step-item active"><i class="fa-brands fa-whatsapp"></i> 3. Cotizar</span>
+            </div>
+
+            <h3 class="modal-title">Cotizador Interactivo</h3>
+            <p class="modal-subtitle">Calcula el valor aproximado para tu servicio digital.</p>
+
+            <form id="quoteForm" onsubmit="sendWhatsApp(event)">
                 <div class="form-group">
-                    <label for="serviceName">Servicio Seleccionado</label>
-                    <input type="text" id="serviceName" readonly>
+                    <label for="clientName">Nombre Completo</label>
+                    <input type="text" id="clientName" placeholder="Tu nombre" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="clientName">Tu Nombre</label>
-                    <input type="text" id="clientName" placeholder="Ej: María López" required>
+                    <label for="serviceSelect">Servicio Requerido</label>
+                    <select id="serviceSelect" onchange="handleServiceChange()" required>
+                        <option value="Currículum">1. Currículum</option>
+                        <option value="Documentos en Word">2. Documentos en Word</option>
+                        <option value="Presentaciones en PowerPoint">3. Presentaciones en PowerPoint</option>
+                        <option value="Organización de información en Excel">4. Organización de información en Excel</option>
+                        <option value="Flyers y publicaciones">5. Flyers y publicaciones</option>
+                        <option value="Catálogos digitales">6. Catálogos digitales</option>
+                        <option value="Menús digitales">7. Menús digitales</option>
+                        <option value="Logos y tarjetas digitales">8. Logos y tarjetas digitales</option>
+                    </select>
                 </div>
+
                 <div class="form-group">
-                    <label for="projectDetails">Detalles de lo que necesitas</label>
-                    <textarea id="projectDetails" rows="4" placeholder="Describe brevemente lo que necesitas (ej: número de páginas, tema, estilo...)" required></textarea>
+                    <label for="levelSelect" id="levelLabel">Tipo / Nivel del Proyecto</label>
+                    <select id="levelSelect" onchange="calculateTotal()" required>
+                    </select>
                 </div>
+
+                <div class="form-group" id="extrasContainer">
+                    <label id="extrasTitle">Agregados / Adicionales</label>
+                    <div class="options-pills" id="extrasContent">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="details"><i class="fa-solid fa-pen-to-square"></i> Detalles o Especificaciones</label>
+                    <textarea id="details" rows="2" placeholder="Escribe aquí el tema, cantidad de páginas, o detalles de lo que necesitas..."></textarea>
+                    
+                    <div class="difficulty-box">
+                        <div class="difficulty-title">
+                            <i class="fa-solid fa-wand-magic-sparkles" style="color: var(--accent-pink);"></i> ¿Nivel de Dificultad o Urgencia Específica?
+                        </div>
+                        <div class="options-pills">
+                            <input type="checkbox" id="optDifficulty" class="pill-checkbox" value="Diseño Avanzado / Alta Complejidad" data-price="2" onchange="calculateTotal()">
+                            <label for="optDifficulty" class="pill-label">
+                                <i class="fa-solid fa-bolt"></i> Requerimiento Complejo / Complejidad (+ $2 USD)
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-box">
+                    <span>Total Estimado:</span>
+                    <span class="total-amount" id="totalAmount">$5 USD</span>
+                </div>
+
                 <button type="submit" class="send-ws-btn">
-                    <i class="fa-brands fa-whatsapp"></i> Enviar a WhatsApp
+                    <i class="fa-brands fa-whatsapp"></i> Escríbenos y cotiza sin compromiso
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- JavaScript logic -->
+    <!-- Script JavaScript -->
     <script>
+        const modalOverlay = document.getElementById('modalOverlay');
+        const serviceSelect = document.getElementById('serviceSelect');
+        const levelSelect = document.getElementById('levelSelect');
+        const levelLabel = document.getElementById('levelLabel');
+        const extrasContainer = document.getElementById('extrasContainer');
+        const extrasContent = document.getElementById('extrasContent');
+        const extrasTitle = document.getElementById('extrasTitle');
+        const totalAmountDisplay = document.getElementById('totalAmount');
+
+        const driveFolderLink = "https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link";
+
+        const basePrices = {
+            "Currículum": 5,
+            "Documentos en Word": 3,
+            "Presentaciones en PowerPoint": 5,
+            "Organización de información en Excel": 5,
+            "Flyers y publicaciones": 3,
+            "Catálogos digitales": 10,
+            "Menús digitales": 8,
+            "Logos y tarjetas digitales": 8
+        };
+
+        let calculatedTotal = 5;
+
         function filterServices(category, btn) {
-            // Update active filter button
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
 
-            // Filter service cards
             const cards = document.querySelectorAll('.service-card');
             cards.forEach(card => {
                 if (category === 'all' || card.getAttribute('data-category') === category) {
@@ -956,34 +1325,170 @@
             });
         }
 
-        function openModal(serviceTitle) {
-            document.getElementById('serviceName').value = serviceTitle;
-            document.getElementById('quoteModal').style.display = 'flex';
+        function openModal(serviceName) {
+            if (serviceName) {
+                serviceSelect.value = serviceName;
+            }
+            handleServiceChange();
+            modalOverlay.style.display = 'flex';
         }
 
         function closeModal() {
-            document.getElementById('quoteModal').style.display = 'none';
+            modalOverlay.style.display = 'none';
         }
 
-        function sendToWhatsApp(e) {
-            e.preventDefault();
-            const service = document.getElementById('serviceName').value;
-            const name = document.getElementById('clientName').value;
-            const details = document.getElementById('projectDetails').value;
-            const phone = "593984955344";
-
-            const message = `Hola Núñez Soluciones Digitales! 👋%0AMi nombre es: *${encodeURIComponent(name)}*%0ADeseo cotizar el servicio: *${encodeURIComponent(service)}*%0ADetalles del pedido:%0A${encodeURIComponent(details)}`;
-
-            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-            closeModal();
-        }
-
-        // Close modal when clicking outside
         window.onclick = function(event) {
-            const modal = document.getElementById('quoteModal');
-            if (event.target === modal) {
+            if (event.target === modalOverlay) {
                 closeModal();
             }
+        }
+
+        function handleServiceChange() {
+            const selectedService = serviceSelect.value;
+            levelSelect.innerHTML = "";
+            extrasContent.innerHTML = "";
+
+            if (selectedService === "Documentos en Word") {
+                levelLabel.textContent = "Tipo de Documento en Word";
+                levelSelect.innerHTML = `
+                    <option value="Cartas e Informes Sencillos">Carta / Informe Sencillo ($3 USD)</option>
+                    <option value="Cartas e Informes Elaborados">Carta / Informe Elaborado ($5 USD)</option>
+                    <option value="Trabajos Académicos">Trabajo Académico (Mínimo $15 USD)</option>
+                    <option value="Constancias y Solicitudes">Constancia / Solicitud ($3 USD)</option>
+                `;
+                extrasTitle.textContent = "Opción de Urgencia para Word";
+                extrasContent.innerHTML = `
+                    <input type="checkbox" id="optWordFast" class="pill-checkbox" value="Entrega Inmediata" data-price="3" onchange="calculateTotal()">
+                    <label for="optWordFast" class="pill-label"><i class="fa-solid fa-bolt"></i> + Entrega Inmediata (+$3 USD)</label>
+                `;
+                extrasContainer.style.display = "block";
+
+            } else if (selectedService === "Currículum") {
+                levelLabel.textContent = "Nivel del Currículum";
+                levelSelect.innerHTML = `
+                    <option value="Estándar / Básico">CV Estándar / Básico ($5 USD)</option>
+                    <option value="Completo / Premium">CV Completo / Premium ($10 USD)</option>
+                `;
+                extrasTitle.textContent = "Adicionales de CV";
+                extrasContent.innerHTML = `
+                    <input type="checkbox" id="opt1" class="pill-checkbox" value="Carta de Presentación" data-price="2" onchange="calculateTotal()">
+                    <label for="opt1" class="pill-label">+ Carta Presentación (+$2)</label>
+
+                    <input type="checkbox" id="optCVFast" class="pill-checkbox" value="Entrega Inmediata" data-price="3" onchange="calculateTotal()">
+                    <label for="optCVFast" class="pill-label">+ Entrega Inmediata (+$3)</label>
+                `;
+                extrasContainer.style.display = "block";
+
+            } else if (selectedService === "Organización de información en Excel") {
+                levelLabel.textContent = "Nivel del Proyecto en Excel";
+                levelSelect.innerHTML = `
+                    <option value="Básico (Tablas y Fórmulas)">Básico - Tablas y Fórmulas ($5 USD)</option>
+                    <option value="Intermedio (Gráficos y Reportes)">Intermedio - Reportes ($8 USD)</option>
+                    <option value="Avanzado (Control e Inventarios)">Avanzado - Inventarios/Dashboard ($10 USD)</option>
+                `;
+                extrasTitle.textContent = "Adicionales de Excel";
+                extrasContent.innerHTML = `
+                    <input type="checkbox" id="optExcel" class="pill-checkbox" value="Fórmulas Especiales / Automatización" data-price="3" onchange="calculateTotal()">
+                    <label for="optExcel" class="pill-label">+ Automatización Específica (+$3)</label>
+                `;
+                extrasContainer.style.display = "block";
+
+            } else if (selectedService === "Flyers y publicaciones") {
+                levelLabel.textContent = "Nivel de Diseño";
+                levelSelect.innerHTML = `
+                    <option value="Post Sencillo">Post / Anuncio Sencillo ($3 USD)</option>
+                    <option value="Flyer Elaborado">Flyer Promocional Elaborado ($5 USD)</option>
+                `;
+                extrasContainer.style.display = "none";
+            } else {
+                levelLabel.textContent = "Nivel del Proyecto";
+                levelSelect.innerHTML = `
+                    <option value="Básico">Básico (Estándar)</option>
+                    <option value="Intermedio">Intermedio (+ $3 USD)</option>
+                    <option value="Avanzado">Avanzado (+ $5 USD)</option>
+                `;
+                extrasContainer.style.display = "none";
+            }
+
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const selectedService = serviceSelect.value;
+            const selectedLevel = levelSelect.value;
+
+            let total = basePrices[selectedService] || 5;
+
+            // Cálculo para Word
+            if (selectedService === "Documentos en Word") {
+                if (selectedLevel.includes("Informes Elaborados")) total = 5;
+                else if (selectedLevel.includes("Trabajos Académicos")) total = 15;
+                else total = 3;
+            } 
+            // Cálculo para Currículum
+            else if (selectedService === "Currículum") {
+                if (selectedLevel.includes("Completo")) total = 10;
+                else total = 5;
+            } 
+            // Cálculo para Excel
+            else if (selectedService === "Organización de información en Excel") {
+                if (selectedLevel.includes("Intermedio")) total = 8;
+                else if (selectedLevel.includes("Avanzado")) total = 10;
+                else total = 5;
+            } 
+            // Cálculo para Flyers
+            else if (selectedService === "Flyers y publicaciones") {
+                if (selectedLevel.includes("Elaborado")) total = 5;
+                else total = 3;
+            } 
+            // Servicios generales
+            else {
+                if (selectedLevel.includes("Intermedio")) total += 3;
+                if (selectedLevel.includes("Avanzado")) total += 5;
+            }
+
+            // Sumar checkboxes activados
+            document.querySelectorAll('.pill-checkbox:checked').forEach((checkbox) => {
+                const price = parseFloat(checkbox.getAttribute('data-price')) || 0;
+                total += price;
+            });
+
+            calculatedTotal = total;
+            totalAmountDisplay.textContent = `$${total} USD`;
+        }
+
+        function sendWhatsApp(event) {
+            event.preventDefault();
+
+            const phoneNumber = "593984955344"; 
+
+            const name = document.getElementById('clientName').value;
+            const service = serviceSelect.value;
+            const level = levelSelect.value;
+            const details = document.getElementById('details').value;
+
+            let extrasText = "Ninguno";
+            let extras = [];
+            document.querySelectorAll('.pill-checkbox:checked').forEach((checkbox) => {
+                extras.push(checkbox.value);
+            });
+            if (extras.length > 0) extrasText = extras.join(', ');
+
+            let message = `*¡Hola Núñez Soluciones Digitales!*\n\nDeseo solicitar una cotización con los siguientes datos:\n\n`;
+            message += `👤 *Cliente:* ${name}\n`;
+            message += `📌 *Servicio:* ${service}\n`;
+            message += `⚡ *Tipo/Nivel:* ${level}\n`;
+            if (extras.length > 0) {
+                message += `➕ *Adicionales / Complejidad:* ${extrasText}\n`;
+            }
+            if (details) {
+                message += `📝 *Detalles:* ${details}\n`;
+            }
+            message += `\n📁 *Catálogo de Muestras/Plantillas:*\n${driveFolderLink}\n`;
+            message += `\n💰 *Cotización Estimada:* $${calculatedTotal} USD\n\n¡Quedo atento a su respuesta!`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
     </script>
 </body>
