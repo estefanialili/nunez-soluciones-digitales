@@ -333,7 +333,7 @@
             font-weight: 700;
             font-size: 12px;
             cursor: pointer;
-            width: 100% ; 
+            width: 100%;
             text-align: center;
             display: flex;
             align-items: center;
@@ -344,28 +344,6 @@
 
         .select-btn:hover {
             background-color: #b8226c;
-        }
-
-        .sample-btn {
-            background-color: #f0e2f5;
-            color: var(--primary-dark);
-            border: 1px solid var(--border-color);
-            padding: 8px 10px;
-            border-radius: 10px;
-            font-weight: 700;
-            font-size: 11px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            transition: all 0.2s;
-            text-decoration: none;
-        }
-
-        .sample-btn:hover {
-            background-color: #e4d0f2;
-            color: var(--accent-pink);
         }
 
         .select-btn.disabled-btn {
@@ -1097,7 +1075,7 @@
             </div>
         </main>
 
-        <!-- Sidebar Contacto (CON HORARIO ACTUALIZADO) -->
+        <!-- Sidebar Contacto -->
         <aside>
             <div class="pricing-card">
                 <span class="badge-header"><i class="fa-solid fa-address-book"></i> Contáctanos ♡</span>
@@ -1168,7 +1146,7 @@
             </div>
         </section>
 
-        <!-- Preguntas Frecuentes (CON HORARIO ACTUALIZADO) -->
+        <!-- Preguntas Frecuentes -->
         <section class="faq-section">
             <h3 class="section-title"><i class="fa-solid fa-circle-question"></i> Preguntas Frecuentes</h3>
             <div class="faq-item">
@@ -1272,7 +1250,6 @@
         const extrasTitle = document.getElementById('extrasTitle');
         const totalAmountDisplay = document.getElementById('totalAmount');
 
-        
         const basePrices = {
             "Currículum": 5,
             "Documentos en Word": 3,
@@ -1459,7 +1436,6 @@
             if (details) {
                 message += `📝 *Detalles:* ${details}\n`;
             }
-            message += `\n📁 *Catálogo de Muestras/Plantillas:*\n${driveFolderLink}\n`;
             message += `\n💰 *Cotización Estimada:* $${calculatedTotal} USD\n\n¡Quedo atento a su respuesta!`;
 
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
