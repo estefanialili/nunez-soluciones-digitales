@@ -328,17 +328,17 @@
             background-color: var(--accent-pink);
             color: white;
             border: none;
-            padding: 8px 10px;
+            padding: 10px 12px;
             border-radius: 10px;
             font-weight: 700;
-            font-size: 11px;
+            font-size: 12px;
             cursor: pointer;
-            flex: 1;
+            width: 100% ; 
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 4px;
+            gap: 6px;
             transition: background 0.2s;
         }
 
@@ -866,9 +866,6 @@
                             <button class="select-btn" onclick="openModal('Currículum')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -899,9 +896,6 @@
                             <button class="select-btn" onclick="openModal('Documentos en Word')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -931,9 +925,6 @@
                             <button class="select-btn" onclick="openModal('Presentaciones en PowerPoint')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -963,9 +954,6 @@
                             <button class="select-btn" onclick="openModal('Organización de información en Excel')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -994,9 +982,6 @@
                             <button class="select-btn" onclick="openModal('Flyers y publicaciones')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1025,9 +1010,6 @@
                             <button class="select-btn" onclick="openModal('Catálogos digitales')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1056,9 +1038,6 @@
                             <button class="select-btn" onclick="openModal('Menús digitales')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1087,9 +1066,6 @@
                             <button class="select-btn" onclick="openModal('Logos y tarjetas digitales')">
                                 <i class="fa-solid fa-plus"></i> Cotizar
                             </button>
-                            <a href="https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link" target="_blank" class="sample-btn">
-                                <i class="fa-solid fa-folder-open"></i> Muestra
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -1296,8 +1272,7 @@
         const extrasTitle = document.getElementById('extrasTitle');
         const totalAmountDisplay = document.getElementById('totalAmount');
 
-        const driveFolderLink = "https://drive.google.com/drive/folders/191syvralcMau4_ib5brIGVEVvhgQ9mkj?usp=drive_link";
-
+        
         const basePrices = {
             "Currículum": 5,
             "Documentos en Word": 3,
